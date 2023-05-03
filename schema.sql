@@ -7,11 +7,17 @@ CREATE TABLE animals (
     escape_attempts INT,
     neutered BOOLEAN,
     weight_kg DECIMAL,
-    species VARCHAR(50)
+    species VARCHAR(50),
+    species_id INT REFERENCES species(id),
+    owner_id INT REFERENCES owners(id)
 );
-
+-- add species column
 ALTER TABLE animals
 ADD COLUMN species VARCHAR(50);
+
+-- Drop the species column
+ALTER TABLE animals
+DROP COLUMN IF EXISTS species;
 
 -- create table owners
 CREATE TABLE owners (
@@ -26,7 +32,15 @@ CREATE TABLE species (
     name VARCHAR(50)
 );
 
--- Step 3: Remove the "species" column
+-- Remove the "species" column
 ALTER TABLE animals
 DROP COLUMN IF EXISTS species;
+
+-- Add the "species_id" column as a foreign key referencing the "species" table
+ALTER TABLE animals
+ADD COLUMN species_id INTEGER REFERENCES species (id);
+
+-- Add the "owner_id" column as a foreign key referencing the "owners" table
+ALTER TABLE animals
+ADD COLUMN owner_id INTEGER REFERENCES owners (id);
 
