@@ -38,3 +38,56 @@ SET species_id = (
 )
 WHERE name NOT LIKE '%mon';
 
+-- Update animals with owner_id for each owner
+
+-- Update animals with owner_id for Sam Smith owning Agumon
+UPDATE animals
+SET owner_id = (SELECT id FROM owners WHERE full_name = 'Sam Smith')
+WHERE name = 'Agumon';
+
+-- Update animals with owner_id for Jennifer Orwell owning Gabumon
+UPDATE animals
+SET owner_id = (SELECT id FROM owners WHERE full_name = 'Jennifer Orwell')
+WHERE name = 'Gabumon';
+
+-- Update animals with owner_id for Jennifer Orwell owning Pikachu
+UPDATE animals
+SET owner_id = (SELECT id FROM owners WHERE full_name = 'Jennifer Orwell')
+WHERE name = 'Pikachu';
+
+-- Update animals with owner_id for Bob owning Devimon
+UPDATE animals
+SET owner_id = (SELECT id FROM owners WHERE full_name = 'Bob')
+WHERE name = 'Devimon';
+
+-- Update animals with owner_id for Bob owning Plantmon
+UPDATE animals
+SET owner_id = (SELECT id FROM owners WHERE full_name = 'Bob')
+WHERE name = 'Plantmon';
+
+-- Update animals with owner_id for Melody Pond owning Charmander
+UPDATE animals
+SET owner_id = (SELECT id FROM owners WHERE full_name = 'Melody Pond')
+WHERE name = 'Charmander';
+
+-- Update animals with owner_id for Melody Pond owning Squirtle
+UPDATE animals
+SET owner_id = (SELECT id FROM owners WHERE full_name = 'Melody Pond')
+WHERE name = 'Squirtle';
+
+-- Update animals with owner_id for Melody Pond owning Blossom
+UPDATE animals
+SET owner_id = (SELECT id FROM owners WHERE full_name = 'Melody Pond')
+WHERE name = 'Blossom';
+
+-- Update animals with owner_id for Dean Winchester owning Angemon
+UPDATE animals
+SET owner_id = (SELECT id FROM owners WHERE full_name = 'Dean Winchester')
+WHERE name = 'Angemon';
+
+-- Update animals with owner_id for Dean Winchester owning Boarmon
+UPDATE animals
+SET owner_id = (SELECT id FROM owners WHERE full_name = 'Dean Winchester')
+WHERE name = 'Boarmon';
+
+
