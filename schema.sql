@@ -26,3 +26,7 @@ CREATE TABLE species (
     name VARCHAR(50)
 );
 
+-- Step 3: Remove the "species" column
+ALTER TABLE animals
+DROP COLUMN IF EXISTS species;
+
