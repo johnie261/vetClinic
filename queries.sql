@@ -178,6 +178,9 @@ WHERE ve.name = 'Maisy Smith'
 GROUP BY s.name;
 
 
+explain analyze SELECT COUNT(*) FROM visits where animal_id = 4;
+
+
 
 
 
