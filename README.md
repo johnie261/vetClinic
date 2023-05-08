@@ -104,6 +104,12 @@ This repository includes files with plain SQL that can be used to recreate a dat
 - Twitter: [@twitter](https://twitter.com/njorogejohnie)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/muturijohn/)
 
+👤 **Mark Rubanza**
+
+- GitHub: [@banzaman](https://github.com/banzaman/)
+- LinkedIn: [Mark Rubanza Anderson](https://www.linkedin.com/in/mark-rubanza-anderson/)
+
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
