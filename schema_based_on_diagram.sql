@@ -1,40 +1,43 @@
 CREATE TABLE patients (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(20),
-    date_of_birth DATE,    
+    name VARCHAR(50),
+    date_of_birth DATE  
 );
 
 CREATE TABLE medical_histories (
     id SERIAL PRIMARY KEY,
     admitted_at TIMESTAMP,
-    patient_id INT,
-    status VARCHAR,
+    status VARCHAR(50),
+    patient_id INT REFERENCES patients(id)
 );
 
-CREATE TABLE invocies (
+CREATE TABLE invoices (
     id SERIAL PRIMARY KEY,
     total_amount DECIMAL,
     generated_at TIMESTAMP,
     paid_at TIMESTAMP,
-    medical_history_id INT,
+    medical_histories_id INT REFERENCES medical_histories(id)
 );
 
 CREATE TABLE treatment (
     id SERIAL PRIMARY KEY,
-    type VARCHAR,
-    name VARCHAR,
+    type VARCHAR(50),
+    name VARCHAR(50)
 );
 
-CREATE TABLE invocie_items (
+CREATE TABLE invoice_items (
     id SERIAL PRIMARY KEY,
     unit_price DECIMAL,
     quantity INT,
     total_price DECIMAL,
-    invoice_id INT,
-    treatment_id INT,
+    invoices_id INT REFERENCES invoices(id),
+    treatment_id INT REFERENCES treatment(id)
 );
 
-CREATE TABLE medical_treatment (
-    medical_history_id INT,
+CREATE TABLE medical_history_treatment (
+    medical_histories_id INT,
     treatment_id INT,
+    PRIMARY KEY (medical_histories_id, treatment_id),
+    FOREIGN KEY (medical_histories_id) REFERENCES medical_histories (id),
+    FOREIGN KEY (treatment_id) REFERENCES treatment (id)
 );
