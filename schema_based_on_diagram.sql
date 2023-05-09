@@ -34,10 +34,27 @@ CREATE TABLE invoice_items (
     treatment_id INT REFERENCES treatment(id)
 );
 
-CREATE TABLE medical_history_treatment (
+CREATE TABLE medical_histories_treatment (
     medical_histories_id INT,
     treatment_id INT,
     PRIMARY KEY (medical_histories_id, treatment_id),
     FOREIGN KEY (medical_histories_id) REFERENCES medical_histories (id),
     FOREIGN KEY (treatment_id) REFERENCES treatment (id)
 );
+
+alter table invoice_items
+    add index (invoices_id),
+    add index (treatment_id);
+
+alter table invoices
+    add index (medical_histories_id);
+
+alter table medical_histories
+    add index (patient_id);
+
+alter table treatment
+    add index (id);
+
+alter table medical_histories_treatments
+    add index (medical_histories_id),
+    add index (treatment_id);
